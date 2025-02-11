@@ -1,0 +1,128 @@
+-- phpMyAdmin SQL Dump
+-- version 5.2.1
+-- https://www.phpmyadmin.net/
+--
+-- Host: 127.0.0.1
+-- Generation Time: Feb 11, 2025 at 05:16 PM
+-- Server version: 10.4.32-MariaDB
+-- PHP Version: 8.0.30
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Database: `manga`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `main`
+--
+
+CREATE TABLE `main` (
+  `id` int(11) NOT NULL,
+  `title` varchar(1000) NOT NULL,
+  `price` int(100) NOT NULL,
+  `description` text NOT NULL,
+  `images` varchar(255) NOT NULL,
+  `create_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `update_At` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `main`
+--
+
+INSERT INTO `main` (`id`, `title`, `price`, `description`, `images`, `create_at`, `update_At`) VALUES
+(1, 'Tearmoon Empire', 2233, ' Lorem, ipsum dolor sit amet consectetur adipisicing elit. Placeat unde delectus nam quod dolores soluta quos eveniet nobis mollitia  necessitatibus maxime ratione saepe, nemo eligendi illo distinctio, optio itaque, eaque impedit illum! Obcaecati eius vero suscipit  illum consequatur dolorum numquam accusamus autem? Debitis, voluptate quae?', 'Tearmoon_Empire.jpg', '2025-02-05 05:19:09', '2025-02-11 15:41:47'),
+(2, 'Classroom Of the Elite', 5100000, ' Lorem, ipsum dolor sit amet consectetur adipisicing elit. Placeat unde delectus nam quod dolores soluta quos eveniet nobis mollitia necessitatibus maxime ratione saepe, nemo eligendi illo distinctio, optio itaque, eaque impedit illum! Obcaecati eius vero suscipit illum consequatur dolorum numquam accusamus autem? Debitis, voluptate quae?', 'Classroom Of The Elite.jpg', '2025-02-05 06:21:00', '2025-02-11 10:06:06'),
+(3, 'Majo No Tabi-Tabi', 5100000, '  Lorem, ipsum dolor sit amet consectetur adipisicing elit. Placeat unde delectus nam quod dolores soluta quos eveniet nobis mollitia\r\n                    necessitatibus maxime ratione saepe, nemo eligendi illo distinctio, optio itaque, eaque impedit illum! Obcaecati eius vero suscipit\r\n                    illum consequatur dolorum numquam accusamus autem? Debitis, voluptate quae?', '1114172.jpg', '2025-02-05 06:22:40', '2025-02-11 09:51:38'),
+(6, 'Tensai Ouji No Akaji', 50000, '   Lorem, ipsum dolor sit amet consectetur adipisicing elit. Placeat unde delectus nam quod dolores soluta quos eveniet nobis mollitia   necessitatibus maxime ratione saepe, nemo eligendi illo distinctio, optio itaque, eaque impedit illum! Obcaecati eius vero suscipit   illum consequatur dolorum numquam accusamus autem? Debitis, voluptate quae?', 'tensai ouji no akaji.png', '2025-02-06 13:56:47', '2025-02-09 14:21:51'),
+(8, 'Kimi No Nawa', 0, 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Placeat unde delectus nam quod dolores soluta quos eveniet nobis mollitia&nbsp; necessitatibus maxime ratione saepe, nemo eligendi illo distinctio, optio itaque, eaque impedit illum! Obcaecati eius vero suscipit&nbsp; illum consequatur dolorum numquam accusamus autem? Debitis, voluptate quae?', 'Your_Name_poster.png', '2025-02-06 13:59:52', '2025-02-11 15:47:08'),
+(9, '6 Lorem ipsum, dolor sit amet consectetur adipisicing elit.', 50000, '&nbsp;Lorem, ipsum dolor sit amet consectetur adipisicing elit. Placeat unde delectus nam quod dolores soluta quos eveniet nobis mollitia&nbsp;necessitatibus maxime ratione saepe, nemo eligendi illo distinctio, optio itaque, eaque impedit illum! Obcaecati eius vero suscipit&nbsp;illum consequatur dolorum numquam accusamus autem? Debitis, voluptate quae?', 'picture6.jpg', '2025-02-06 14:00:40', '2025-02-06 14:07:32'),
+(10, '7 Lorem ipsum, dolor sit amet consectetur adipisicing elit.', 50000, '&nbsp;Lorem, ipsum dolor sit amet consectetur adipisicing elit. Placeat unde delectus nam quod dolores soluta quos eveniet nobis mollitia&nbsp;necessitatibus maxime ratione saepe, nemo eligendi illo distinctio, optio itaque, eaque impedit illum! Obcaecati eius vero suscipit&nbsp;illum consequatur dolorum numquam accusamus autem? Debitis, voluptate quae?', 'picture7.jpg', '2025-02-06 14:01:24', '2025-02-06 14:07:40'),
+(11, '8 Lorem ipsum, dolor sit amet consectetur adipisicing elit.', 50000, '&nbsp;Lorem, ipsum dolor sit amet consectetur adipisicing elit. Placeat unde delectus nam quod dolores soluta quos eveniet nobis mollitia&nbsp;necessitatibus maxime ratione saepe, nemo eligendi illo distinctio, optio itaque, eaque impedit illum! Obcaecati eius vero suscipit&nbsp;illum consequatur dolorum numquam accusamus autem? Debitis, voluptate quae?', 'picture8.jpg', '2025-02-06 14:02:11', '2025-02-06 14:07:48'),
+(12, '9 Lorem ipsum, dolor sit amet consectetur adipisicing elit.', 50000, '&nbsp;Lorem, ipsum dolor sit amet consectetur adipisicing elit. Placeat unde delectus nam quod dolores soluta quos eveniet nobis mollitia&nbsp;necessitatibus maxime ratione saepe, nemo eligendi illo distinctio, optio itaque, eaque impedit illum! Obcaecati eius vero suscipit&nbsp;illum consequatur dolorum numquam accusamus autem? Debitis, voluptate quae?', 'picture9.jpg', '2025-02-06 14:03:13', '2025-02-06 14:08:02'),
+(13, '10 Lorem ipsum, dolor sit amet consectetur adipisicing elit.', 60000, '&nbsp;Lorem, ipsum dolor sit amet consectetur adipisicing elit. Placeat unde delectus nam quod dolores soluta quos eveniet nobis mollitia&nbsp;necessitatibus maxime ratione saepe, nemo eligendi illo distinctio, optio itaque, eaque impedit illum! Obcaecati eius vero suscipit&nbsp;illum consequatur dolorum numquam accusamus autem? Debitis, voluptate quae?', 'picture10.jpg', '2025-02-06 14:03:52', '2025-02-06 14:08:08');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `sub_main`
+--
+
+CREATE TABLE `sub_main` (
+  `id` int(12) NOT NULL,
+  `main_id` int(12) NOT NULL,
+  `chapter` varchar(50) NOT NULL,
+  `detail` varchar(1000) NOT NULL,
+  `file_content` varchar(255) NOT NULL,
+  `create_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `update_At` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `sub_main`
+--
+
+INSERT INTO `sub_main` (`id`, `main_id`, `chapter`, `detail`, `file_content`, `create_at`, `update_At`) VALUES
+(1, 6, 'Chapter 1', 'Di ujung utara benua Varno terletak negara kecil Kerajaan Natra. Sejak Raja Owen jatuh sakit, tugas menjalankan negara jatuh ke tangan putra Owen yang sangat kompeten, Putra Mahkota, yang sekarang men', '[Bakadame.com] Pangeran Nolep Aku Banget Vol.5.pdf', '2025-02-09 15:22:39', '2025-02-11 09:58:11'),
+(34, 3, 'Chapter 4', 'Terpesona dengan kisah Niké, seorang penyihir yang menjelajahi dunia, Elaina bercita-cita untuk mengikuti kursus yang sama. Tekadnya untuk mempelajari buku dan ilmu sihir membuatnya menjadi penyihir magang termuda yang lulus ujian ilmu sihir. Namun, ketika Elaina mencoba menerima pelatihan untuk menjadi penyihir sejati, ia ditolak karena bakatnya yang luar biasa hingga ia menemukan Fran, \"Penyihir Stardust\", yang menerimanya. Setelah mendapatkan gelarnya, \"Penyihir Ashen\", Elaina memulai penjelajahannya di seluruh dunia, mengunjungi dan menghadapi berbagai macam orang dan tempat.', '[Bakadame.com] Majo no Tabitabi Vol 4.pdf', '2025-02-11 09:56:29', '2025-02-11 10:00:21'),
+(35, 2, 'Chapter 1 Second Years', 'Pemerintah Jepang telah mendirikan Tokyo Metropolitan Advanced Nurturing School, yang didedikasikan untuk mendidik dan membina generasi orang-orang yang akan mendukung negara di masa depan. Para siswa diberi kebebasan yang tinggi untuk meniru kehidupan nyata. Cerita ini mengikuti sudut pandang Kiyotaka Ayanokōji, seorang anak laki-laki yang pendiam dan sederhana, yang buruk dalam berteman dan lebih suka menjaga jarak, tetapi memiliki kecerdasan yang tak tertandingi dan kemampuan fisik yang luar biasa. Dia adalah siswa Kelas-D, tempat sekolah membuang siswa-siswanya yang kurang beruntung, yang secara luas dianggap \"cacat\". Setelah bertemu Suzune Horikita dan Kikyō Kushida, dua siswa lain di kelasnya, situasinya mulai berubah, dan dia terlibat dalam banyak perselingkuhan dan pemikirannya tentang kehidupan sekolah menengah yang normal dan ideal mulai tersebar, yang membebani kewarasannya.', 'Youkoso Jitsuryoku Shijou Shugi no Kyoushitsu e 2nd Year Vol 1.pdf', '2025-02-11 10:07:44', '2025-02-11 10:07:44'),
+(36, 1, 'Chapter 2', 'Di Kekaisaran Tearmoon yang runtuh, Putri Mia Luna Tearmoon yang berusia 20 tahun, yang dicemooh sebagai putri yang egois, dieksekusi dengan guillotine. Namun, alih-alih mati, ia terbangun dan mendapati dirinya kembali dalam tubuhnya yang berusia 12 tahun, awalnya percaya bahwa kejadian itu adalah mimpi, sebelum menemukan buku hariannya berlumuran darah dari eksekusi dan berisi catatan yang ia buat sebelum kejadian itu. Memohon untuk menghindari eksekusi dengan cara apa pun, ia memutuskan untuk membangun kembali kekaisaran. Karena itu, ia akan \"mengutamakan keselamatannya sendiri\". Tindakannya yang dianggap egois, dicampur dengan pengetahuannya dari kehidupan pertamanya, entah bagaimana memikat orang-orang di sekitarnya saat ia bekerja keras untuk mengubah musuh-musuhnya di kehidupan pertamanya menjadi sekutunya.', 'Tearmoon Empire_ Volume 2.pdf', '2025-02-11 15:42:55', '2025-02-11 15:42:55');
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `main`
+--
+ALTER TABLE `main`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `sub_main`
+--
+ALTER TABLE `sub_main`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `main_id` (`main_id`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `main`
+--
+ALTER TABLE `main`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+
+--
+-- AUTO_INCREMENT for table `sub_main`
+--
+ALTER TABLE `sub_main`
+  MODIFY `id` int(12) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `sub_main`
+--
+ALTER TABLE `sub_main`
+  ADD CONSTRAINT `sub_main_ibfk_1` FOREIGN KEY (`main_id`) REFERENCES `main` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
