@@ -121,7 +121,7 @@ if (isset($_POST['edit'])) {
                     </p>
                 </div>
                 <div class="card-footer d-md-flex">
-                    <button type="button" class="btn btn-sm btn-primary btnModal" data-bs-toggle="modal" data-bs-target="#exampleModal<?php echo $value['id'] ?>">
+                    <button type="button" class="btn btn-sm btn-primary btnModal" data-bs-toggle="modal" data-bs-target="#exampleModal<?php echo $value['id_detail'] ?>">
                         detail </button>
                     <!-- <a class="btn btn-sm btn-primary d-block btnDetail" data-id="<?php echo $value['id'] ?>">detail</a> -->
                 </div>

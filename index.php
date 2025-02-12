@@ -72,7 +72,7 @@
     <?php else : ?>
       <?php if (isset($_GET['tambah']) || isset($_GET['edit']) || isset($_GET['change_detail'])) : ?>
         <?php include 'content/main.php' ?>
-      <?php elseif (isset($_GET['change']) || isset($_GET['add_data']) || isset($_GET['detail'])) : ?>
+      <?php elseif (isset($_GET['change']) || isset($_GET['add_data']) || isset($_GET['detail']) || isset($_GET['delete'])) : ?>
         <?php include 'content/add_data.php' ?>
       <?php else : ?>
         <div class="row row-cols-md-5 row-cols-2 gx-4 p-6">
@@ -92,14 +92,9 @@
   </div>
 
 
-  <!-- <?php foreach ($resulContent as $modalDirect) : ?>
-        <button type="button" class="btn btn-primary d-none btnModal" data-bs-toggle="modal" data-bs-target="#exampleModal<?php echo $modalDirect['id'] ?>">
-          Launch demo modal
-        </button>
-      <?php endforeach ?> -->
 
   <?php foreach ($resulContent as $modalDisplay) : ?>
-    <div class="modal fade" id="exampleModal<?php echo $modalDisplay['id'] ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade" id="exampleModal<?php echo $modalDisplay['id_detail'] ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog modal-xl">
         <div class="modal-content">
           <div class="modal-header">
@@ -129,7 +124,7 @@
                       <div class="accordion-body">
                         <strong>
                           <?php if (isset($modalDisplay['id_detail']) == 0) : ?>
-                            <a href="?add_data" class="btn btn-sm btn-primary"><i class='bx bx-message-square-add'></i></a>
+                            <a href="?add_data" class="btn btn-sm btn-primary <?php echo isset($_SESSION['ID']) ? '' : 'd-none' ?>"><i class='bx bx-message-square-add'></i></a>
                           <?php else : ?>
                             <a href="?detail=<?php echo $modalDisplay['id_detail'] ?>"><?php echo $modalDisplay['chapter'] ?></a>
                             <a href="?change=<?php echo $modalDisplay['id_detail'] ?>" class="btn btn-sm btn-success mx-3 <?php echo isset($_SESSION['ID']) ? '' : 'd-none' ?>" data-toggle="tooltip" data-placement="top" data-bs-custom-class="custom-tooltip" title="Edit Chapter"><i class='bx bx-pencil'></i></a>
@@ -151,6 +146,7 @@
           <div class="modal-footer d-flex justify-content-between">
             <div class="d-flex mx-2">
               <a href="?edit=<?php echo $modalDisplay['id'] ?>" class="btn btn-sm btn-success mx-3 <?php echo isset($_SESSION['ID']) ? '' : 'd-none' ?>" data-toggle="tooltip" data-placement="top" data-bs-custom-class="custom-tooltip" title="Edit Banner">Edit</a>
+              <a href="?delete=<?php echo $modalDisplay['id_detail'] ?>" onclick="return confirm('Apakah anda yakin akan menghapus data ini??')" class="btn btn-sm btn-danger <?php echo isset($_SESSION['ID']) ? '' : 'd-none' ?>" data-toggle="tooltip" data-placement="top" data-bs-custom-class="custom-tooltip" title="Delete Chapter"><i class='bx bx-trash'></i></a>
             </div>
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
           </div>

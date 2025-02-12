@@ -6,7 +6,7 @@ include 'database/query.php';
 
 if (isset($_POST['simpan'])) {
     $sub_title = $_POST['sub_title'];
-    $event = $_POST['event'];
+    $event = htmlspecialchars($_POST['event']);
     $detail = strip_tags($_POST['detail']);
 
     if (!empty($_FILES['dokumen']['name'])) {
@@ -28,8 +28,7 @@ if (isset($_POST['simpan'])) {
         $queryData = mysqli_query($koneksi, "INSERT INTO sub_main (main_id, chapter, detail) VALUES ('$sub_title', '$event', '$detail') ");
     }
 
-    print_r($queryData);
-    die();
+    header('location: ?Input=Success');
 }
 
 $change = isset($_GET['change']) ? $_GET['change'] : '';
@@ -40,7 +39,7 @@ $rowChange = mysqli_fetch_assoc($dataChange);
 
 if (isset($_POST['change'])) {
     $sub_title = $_POST['sub_title'];
-    $event = $_POST['event'];
+    $event = htmlspecialchars($_POST['event']);
     $detail = strip_tags($_POST['detail']);
 
     if (!empty($_FILES['dokumen']['name'])) {
@@ -63,10 +62,16 @@ if (isset($_POST['change'])) {
 
         $queryChange = mysqli_query($koneksi, "UPDATE sub_main SET main_id = '$sub_title', chapter = '$event', detail = '$detail' WHERE id = '$change'");
     }
-    print_r($queryChange);
-    die();
+    header('location: ?Update=Success');
 }
 
+//Delete
+
+if (isset($_GET['delete'])) {
+    $delete = $_GET['delete'];
+    $queryDelete = mysqli_query($koneksi, "DELETE FROM sub_main WHERE id = '$delete'");
+    header('location:?Delete=Success');
+}
 
 // print_r($resulContent);
 // die();
