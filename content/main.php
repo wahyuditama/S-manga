@@ -2,7 +2,7 @@
 
 include 'database/koneksi.php';
 include 'database/query.php';
-session_start();
+// session_start();
 
 //untuk tambah konten
 if (isset($_POST['tambah'])) {
@@ -130,5 +130,3 @@ if (isset($_POST['edit'])) {
     <?php endforeach ?>
 
 <?php endif ?>
-
-<!-- change -->

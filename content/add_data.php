@@ -2,6 +2,7 @@
 
 include 'database/koneksi.php';
 include 'database/query.php';
+// session_start();
 
 if (isset($_POST['simpan'])) {
     $sub_title = $_POST['sub_title'];

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 11, 2025 at 05:16 PM
+-- Generation Time: Feb 12, 2025 at 07:32 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.0.30
 
@@ -79,6 +79,28 @@ INSERT INTO `sub_main` (`id`, `main_id`, `chapter`, `detail`, `file_content`, `c
 (35, 2, 'Chapter 1 Second Years', 'Pemerintah Jepang telah mendirikan Tokyo Metropolitan Advanced Nurturing School, yang didedikasikan untuk mendidik dan membina generasi orang-orang yang akan mendukung negara di masa depan. Para siswa diberi kebebasan yang tinggi untuk meniru kehidupan nyata. Cerita ini mengikuti sudut pandang Kiyotaka Ayanokōji, seorang anak laki-laki yang pendiam dan sederhana, yang buruk dalam berteman dan lebih suka menjaga jarak, tetapi memiliki kecerdasan yang tak tertandingi dan kemampuan fisik yang luar biasa. Dia adalah siswa Kelas-D, tempat sekolah membuang siswa-siswanya yang kurang beruntung, yang secara luas dianggap \"cacat\". Setelah bertemu Suzune Horikita dan Kikyō Kushida, dua siswa lain di kelasnya, situasinya mulai berubah, dan dia terlibat dalam banyak perselingkuhan dan pemikirannya tentang kehidupan sekolah menengah yang normal dan ideal mulai tersebar, yang membebani kewarasannya.', 'Youkoso Jitsuryoku Shijou Shugi no Kyoushitsu e 2nd Year Vol 1.pdf', '2025-02-11 10:07:44', '2025-02-11 10:07:44'),
 (36, 1, 'Chapter 2', 'Di Kekaisaran Tearmoon yang runtuh, Putri Mia Luna Tearmoon yang berusia 20 tahun, yang dicemooh sebagai putri yang egois, dieksekusi dengan guillotine. Namun, alih-alih mati, ia terbangun dan mendapati dirinya kembali dalam tubuhnya yang berusia 12 tahun, awalnya percaya bahwa kejadian itu adalah mimpi, sebelum menemukan buku hariannya berlumuran darah dari eksekusi dan berisi catatan yang ia buat sebelum kejadian itu. Memohon untuk menghindari eksekusi dengan cara apa pun, ia memutuskan untuk membangun kembali kekaisaran. Karena itu, ia akan \"mengutamakan keselamatannya sendiri\". Tindakannya yang dianggap egois, dicampur dengan pengetahuannya dari kehidupan pertamanya, entah bagaimana memikat orang-orang di sekitarnya saat ia bekerja keras untuk mengubah musuh-musuhnya di kehidupan pertamanya menjadi sekutunya.', 'Tearmoon Empire_ Volume 2.pdf', '2025-02-11 15:42:55', '2025-02-11 15:42:55');
 
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `user`
+--
+
+CREATE TABLE `user` (
+  `id` int(12) NOT NULL,
+  `username` varchar(100) NOT NULL,
+  `email` varchar(100) NOT NULL,
+  `password` varchar(100) NOT NULL,
+  `create_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `update_At` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `user`
+--
+
+INSERT INTO `user` (`id`, `username`, `email`, `password`, `create_at`, `update_At`) VALUES
+(1, 'admin', 'admin@gmail.com', '123', '2025-02-12 05:52:56', '2025-02-12 05:52:56');
+
 --
 -- Indexes for dumped tables
 --
@@ -97,6 +119,12 @@ ALTER TABLE `sub_main`
   ADD KEY `main_id` (`main_id`);
 
 --
+-- Indexes for table `user`
+--
+ALTER TABLE `user`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -111,6 +139,12 @@ ALTER TABLE `main`
 --
 ALTER TABLE `sub_main`
   MODIFY `id` int(12) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
+
+--
+-- AUTO_INCREMENT for table `user`
+--
+ALTER TABLE `user`
+  MODIFY `id` int(12) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- Constraints for dumped tables
