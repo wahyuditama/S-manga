@@ -31,11 +31,8 @@ if (isset($_POST['simpan'])) {
     header('location: ?Input=Success');
 }
 
-$change = isset($_GET['change']) ? $_GET['change'] : '';
-$detail = isset($_GET['detail']) ? $_GET['detail'] : '';
-$dataChange = mysqli_query($koneksi, "SELECT main.title, sub_main.* FROM sub_main LEFT JOIN main ON main.id = sub_main.main_id WHERE sub_main.id = '$change' OR sub_main.id = '$detail'");
 
-$rowChange = mysqli_fetch_assoc($dataChange);
+
 
 if (isset($_POST['change'])) {
     $sub_title = $_POST['sub_title'];
@@ -85,14 +82,14 @@ if (isset($_GET['delete'])) {
                     <div class="mb-3">
                         <label for="">Judul</label>
                         <?php if (isset($_GET['detail'])) : ?>
-                            <input type="text" class="form-control" value="<?php echo isset($_GET['detail'])  ? $rowChange['title'] : '' ?>" readonly>
+                            <input type="text" class="form-control" value="<?php echo isset($_GET['detail'])  ? $rowChange[0]['title'] : '' ?>" readonly>
                         <?php else : ?>
                             <select name="sub_title" class="form-control" id="">
                                 <option value="">---Pilih Judul---</option>
                                 <?php foreach ($resulContent as $val) : ?>
                                     <?php if (isset($_GET['add_data']) || isset($_GET['change'])) : ?>
-                                        <option value="<?php echo $val['id'] ?>"
-                                            <?php echo isset($_GET['add_data']) && $val['id'] == $_GET['add_data'] ? 'selected' : ''; ?>>
+                                        <option value="<?php echo $val['id_main'] ?>"
+                                            <?php echo isset($_GET['add_data']) && $val['id_main'] == $_GET['add_data'] ? 'selected' : ''; ?>>
                                             <?php echo $val['title'] ?>
                                         </option>
                                     <?php endif; ?>
@@ -102,7 +99,7 @@ if (isset($_GET['delete'])) {
                     </div>
                     <div class="mb-3">
                         <label for="">Masukan Title / Chapter</label>
-                        <input type="text" name="event" class="form-control" value="<?php echo isset($_GET['change']) || isset($_GET['detail']) ? $rowChange['chapter'] : '' ?>" <?php echo isset($_GET['detail']) ? 'readonly' : '' ?> id="">
+                        <input type="text" name="event" class="form-control" value="<?php echo isset($_GET['change']) || isset($_GET['detail']) ? $rowChange[0]['chapter'] : '' ?>" <?php echo isset($_GET['detail']) ? 'readonly' : '' ?> id="">
                     </div>
                 </div>
                 <div class="col-sm-6">
@@ -110,9 +107,9 @@ if (isset($_GET['delete'])) {
                         <label for="">Deskripsi Novel</label>
                         <?php if (isset($_GET['detail'])) :  ?>
                             <textarea id="resize" class="form-control pt-4 px-3" name="detail" style="height: 20rem; text-align: justify;" readonly>
-                            <?php echo isset($_GET['detail']) ? $rowChange['detail'] : '' ?></textarea>
+                            <?php echo isset($_GET['detail']) ? $rowChange[0]['detail'] : '' ?></textarea>
                         <?php else : ?>
-                            <textarea id="editor" class="form-control" name="detail"><?php echo isset($_GET['change']) ? $rowChange['detail'] : '' ?></textarea>
+                            <textarea id="editor" class="form-control" name="detail"><?php echo isset($_GET['change']) ? $rowChange[0]['detail'] : '' ?></textarea>
                         <?php endif ?>
                     </div>
                 </div>
@@ -121,10 +118,10 @@ if (isset($_GET['delete'])) {
                         <div class="mb-3">
                             <label for="">Masukan File Disini</label>
                             <?php if (isset($_GET['detail'])) : ?>
-                                <iframe src="document/<?php echo isset($_GET['detail']) ? $rowChange['file_content'] : '' ?>" width="100%" height="600" frameborder="0"></iframe>
+                                <iframe src="document/<?php echo isset($_GET['detail']) ? $rowChange[0]['file_content'] : '' ?>" width="100%" height="600" frameborder="0"></iframe>
                             <?php else : ?>
                                 <input type="file" class="form-control" id="file" name="dokumen" value="">
-                                <input type="text" class="form-control" value="<?php echo isset($_GET['change']) ? $rowChange['file_content'] : '' ?>" readonly>
+                                <input type="text" class="form-control" value="<?php echo isset($_GET['change']) ? $rowChange[0]['file_content'] : '' ?>" readonly>
                             <?php endif ?>
                         </div>
                     </div>

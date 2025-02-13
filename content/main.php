@@ -28,8 +28,7 @@ if (isset($_POST['tambah'])) {
     } else {
         $queryMain = mysqli_query($koneksi, "INSERT INTO main (title, price, description) VALUES ('$judul', '$harga', '$desk') ");
     }
-    print_r($queryMain);
-    die();
+    header('location: ?Input=Success');
 }
 
 //untuk edit konten
@@ -66,8 +65,7 @@ if (isset($_POST['edit'])) {
     } else {
         $queryMain = mysqli_query($koneksi, "UPDATE main SET title = '$title', price = '$price', description = '$description' WHERE id = '$id' ");
     }
-    print_r($queryMain);
-    die();
+    header('location: ?Update=Success');
 }
 
 
@@ -108,25 +106,77 @@ if (isset($_POST['edit'])) {
         </form>
     </div>
 <?php else : ?>
-    <?php foreach ($resulContent as $value) :  ?>
-        <div class="col mb-5">
-            <div class="card shadow">
-                <img src="image/<?php echo $value['images'] ?>" class="card-img-top" height="250" style="object-fit: cover;" />
-                <div class="card-body">
-                    <p class="card-text text-justify"><?php echo $value['title'] ?></p>
+    <?php if (isset($_GET['read'])) : ?>
+        <div class="col-sm-12">
+            <div class="card">
+                <div class="card-title d-flex justify-content-between m-3">
+                    <?php if (isset($rowChange[0]['description']) == 0) : ?>
+                        <a href="?add_data" class="btn btn-sm btn-primary pt-2 <?php echo isset($_SESSION['ID']) ? '' : 'd-none' ?>">Tambah Data<i class='bx bx-message-square-add mx-2'></i></a>
+                    <?php else : ?>
+                    <?php endif ?>
+                    <div class="col-sm-3">
+                        <div class="card shadow-md">
+                            <img src="image/<?php echo $rowChange[0]['images'] ?>" class="rounded" style="object-fit: cover;" alt="">
+                        </div>
+                    </div>
+                    <div class="col-sm-8 card offset-1 pt-4">
+                        <p class="px-5" style="text-align:justify;"><?php echo isset($rowChange[0]['description']) == 0 ? 'Data Belum Tersedia' : $rowChange[0]['description'] ?></p>
+                    </div>
                 </div>
-                <div class="d-none deskripsi">
-                    <p class="text-justify" style="text-align: justify;">
-                        <?php echo  $value['description'] ?>
-                    </p>
-                </div>
-                <div class="card-footer d-md-flex">
-                    <button type="button" class="btn btn-sm btn-primary btnModal" data-bs-toggle="modal" data-bs-target="#exampleModal<?php echo $value['id_detail'] ?>">
-                        detail </button>
-                    <!-- <a class="btn btn-sm btn-primary d-block btnDetail" data-id="<?php echo $value['id'] ?>">detail</a> -->
+                <div class="table-md m-3">
+                    <table class="table table-bordered text-center">
+                        <thead>
+                            <tr align="right">
+                                <th colspan="2">
+                                    <a href="?add_data" class="btn btn-sm btn-primary pt-2 <?php echo isset($_SESSION['ID']) ? '' : 'd-none' ?>">Tambah Data<i class='bx bx-message-square-add mx-2'></i></a>
+                                </th>
+                            </tr>
+                            <tr>
+                                <th>Chapter</th>
+                                <th class="<?php echo isset($_SESSION['ID']) ? '' : 'd-none' ?>">Tools</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php foreach ($rowChange as $key) : ?>
+                                <tr>
+                                    <td>
+                                        <a href="?detail=<?php echo $key['id'] ?>"><?php echo $key['file_content'] ?></a>
+                                    </td>
+                                    <td class="<?php echo isset($_SESSION['ID']) ? '' : 'd-none' ?>">
+                                        <a href="?change=<?php echo $key['id'] ?>" class="btn btn-sm btn-success mx-3 <?php echo isset($_SESSION['ID']) ? '' : 'd-none' ?>" data-toggle="tooltip" data-placement="top" data-bs-custom-class="custom-tooltip" title="Edit Chapter"><i class='bx bx-pencil'></i></a>
+                                        <a href="?delete=<?php echo $key['id'] ?>" onclick="return confirm('Apakah anda yakin akan menghapus data ini??')" class="btn btn-sm btn-danger <?php echo isset($_SESSION['ID']) ? '' : 'd-none' ?>" data-toggle="tooltip" data-placement="top" data-bs-custom-class="custom-tooltip" title="Delete Chapter"><i class='bx bx-trash'></i></a>
+                                    </td>
+                                </tr>
+                            <?php endforeach ?>
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>
-    <?php endforeach ?>
+    <?php else : ?>
+        <?php foreach ($resulContent as $value) :  ?>
+            <div class="col mb-5">
+                <div class="card shadow">
+                    <a href="?read=<?php echo $value['id_main'] ?>" style="cursor: pointer;">
+                        <img src="image/<?php echo $value['images'] ?>" class="card-img-top" height="250" style="object-fit: cover;" />
+                    </a>
+                    <div class="card-body">
+                        <p class="card-text text-justify"><?php echo $value['title'] ?></p>
+                    </div>
+                    <div class="d-none deskripsi">
+                        <p class="text-justify" style="text-align: justify;">
+                            <?php echo  $value['description'] ?>
+                        </p>
+                    </div>
+                    <div class="card-title border-top shadow-md d-flex justify-content-between">
+                        <div class="mt-2">
+                            <a href="?edit=<?php echo $value['id_main'] ?>" class="btn btn-sm btn-success mx-3 <?php echo isset($_SESSION['ID']) ? '' : 'd-none' ?>" data-toggle="tooltip" data-placement="top" data-bs-custom-class="custom-tooltip" title="Edit Banner"><i class='bx bx-pencil'></i></a>
+                            <a href="?delete=<?php echo $value['id_detail'] ?>" onclick="return confirm('Apakah anda yakin akan menghapus data ini??')" class="btn btn-sm btn-danger <?php echo isset($_SESSION['ID']) ? '' : 'd-none' ?>" data-toggle="tooltip" data-placement="top" data-bs-custom-class="custom-tooltip" title="Delete Chapter"><i class='bx bx-trash'></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <?php endforeach ?>
+    <?php endif ?>
 
 <?php endif ?>

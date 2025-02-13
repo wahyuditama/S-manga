@@ -25,11 +25,11 @@
 
 <body>
   <?php session_start(); ?>
-  <?php if (isset($_GET['edit']) || isset($_GET['tambah']) || isset($_GET['change']) || isset($_GET['add_data']) || isset($_GET['detail'])) : ?>
+  <?php if (isset($_GET['edit']) || isset($_GET['tambah']) || isset($_GET['change']) || isset($_GET['add_data']) || isset($_GET['detail']) || isset($_GET['read'])) : ?>
   <?php else : ?>
     <style>
       body {
-        background: url('images/inazuma.png') no-repeat center center fixed !important;
+        background: url('images/inazuma.png') no-repeat center fixed !important;
         background-size: cover !important;
       }
     </style>
@@ -54,7 +54,7 @@
     <!-- banner -->
     <div class="card-title border-bottom border-primary-subtle m-2 p-2 shadow-md" align="right">
       <!-- <img src="images/banner1.png" class="w-100 rounded-3" /> -->
-      <?php if (isset($_GET['edit']) || isset($_GET['tambah']) || isset($_GET['change']) || isset($_GET['add_data']) || isset($_GET['detail'])) : ?>
+      <?php if (isset($_GET['edit']) || isset($_GET['tambah']) || isset($_GET['change']) || isset($_GET['add_data']) || isset($_GET['detail']) || isset($_GET['read'])) : ?>
         <a href="?" class="text-decoration-none btn btn-sm btn-secondary" onclick="window.history.back()">Kembali</a>
       <?php else : ?>
         <a href="?tambah" class="text-decoration-none btn btn-sm btn-danger <?php echo isset($_SESSION['ID']) ? '' : 'd-none' ?>">Tambah Banner</a>
@@ -70,7 +70,7 @@
     <?php if (isset($_GET['pg'])) : ?>
       <?php echo 'Data Tidak Ditemukan'; ?>
     <?php else : ?>
-      <?php if (isset($_GET['tambah']) || isset($_GET['edit']) || isset($_GET['change_detail'])) : ?>
+      <?php if (isset($_GET['tambah']) || isset($_GET['edit']) || isset($_GET['change_detail']) || isset($_GET['read'])) : ?>
         <?php include 'content/main.php' ?>
       <?php elseif (isset($_GET['change']) || isset($_GET['add_data']) || isset($_GET['detail']) || isset($_GET['delete'])) : ?>
         <?php include 'content/add_data.php' ?>
@@ -84,7 +84,7 @@
 
 
   </div>
-  <div class="bg-light text-center p-0">
+  <div class="bg-light text-center p-0 fixed-bottom">
     <div class=" mx-auto w-75">
       <h6 class="text-center p-2 border-top font-weight-bold">&copy; My~Manga. <span class="text-success">2025</span>
       </h6>
@@ -94,7 +94,7 @@
 
 
   <?php foreach ($resulContent as $modalDisplay) : ?>
-    <div class="modal fade" id="exampleModal<?php echo $modalDisplay['id_detail'] ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <!-- <div class="modal fade" id="exampleModal<?php echo $modalDisplay['id_detail'] ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog modal-xl">
         <div class="modal-content">
           <div class="modal-header">
@@ -113,7 +113,6 @@
                 <p><?php echo $modalDisplay['description'] ?></p>
               </div>
               <div class="d-md-flex">
-                <!-- <a href="" target="blank" class="btn btn-sm btn-warning d-block btnBeli">Payment this Manga</a> -->
                 <div class="accordion form-control" id="accordionExample">
                   <div class="accordion-item">
                     <h2 class="accordion-header">
@@ -145,36 +144,22 @@
           </div>
           <div class="modal-footer d-flex justify-content-between">
             <div class="d-flex mx-2">
-              <a href="?edit=<?php echo $modalDisplay['id'] ?>" class="btn btn-sm btn-success mx-3 <?php echo isset($_SESSION['ID']) ? '' : 'd-none' ?>" data-toggle="tooltip" data-placement="top" data-bs-custom-class="custom-tooltip" title="Edit Banner">Edit</a>
+              <a href="?edit=<?php echo $modalDisplay['id_main'] ?>" class="btn btn-sm btn-success mx-3 <?php echo isset($_SESSION['ID']) ? '' : 'd-none' ?>" data-toggle="tooltip" data-placement="top" data-bs-custom-class="custom-tooltip" title="Edit Banner">Edit</a>
               <a href="?delete=<?php echo $modalDisplay['id_detail'] ?>" onclick="return confirm('Apakah anda yakin akan menghapus data ini??')" class="btn btn-sm btn-danger <?php echo isset($_SESSION['ID']) ? '' : 'd-none' ?>" data-toggle="tooltip" data-placement="top" data-bs-custom-class="custom-tooltip" title="Delete Chapter"><i class='bx bx-trash'></i></a>
             </div>
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
           </div>
         </div>
       </div>
-    </div>
+    </div> -->
   <?php endforeach ?>
   <script
     src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
     crossorigin="anonymous"></script>
 
-  <!-- <script src="script.js"></script> -->
-  <script>
-    //summernote
-    $(document).ready(function() {
-      $('#editor').summernote({
-        height: 100, // Tinggi editor
-        placeholder: 'Tulis sesuatu di sini...',
-        toolbar: [
-          ['style', ['bold', 'italic', 'underline', 'clear']],
-          ['para', ['ul', 'ol', 'paragraph']],
-          ['insert', ['link', 'picture', 'video']],
-          ['view', ['fullscreen', 'codeview', 'help']]
-        ]
-      });
-    });
-  </script>
+  <script src="script.js"></script>
+
 </body>
 
 </html>
