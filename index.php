@@ -92,67 +92,6 @@
   </footer>
 
 
-
-  <?php foreach ($resulContent as $modalDisplay) : ?>
-    <!-- <div class="modal fade" id="exampleModal<?php echo $modalDisplay['id_detail'] ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div class="modal-dialog modal-xl">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h1 class="modal-title fs-5 modalTitle" id="exampleModalLabel">
-              <h3><?php echo $modalDisplay['title'] ?></h3>
-
-            </h1>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-          <div class="modal-body row">
-            <div class="modalImage col-md-6 col-12">
-              <img width="" src="image/<?php echo $modalDisplay['images'] ?>" class="img-fluid" alt="Responsive image">
-            </div>
-            <div class="col-md-6 col-12">
-              <div class="modalDeskripsi" style="text-align:justify;">
-                <p><?php echo $modalDisplay['description'] ?></p>
-              </div>
-              <div class="d-md-flex">
-                <div class="accordion form-control" id="accordionExample">
-                  <div class="accordion-item">
-                    <h2 class="accordion-header">
-                      <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
-                        <?php echo $modalDisplay['title'] ?> </button>
-                    </h2>
-                    <div id="collapseOne" class="accordion-collapse" data-bs-parent="#accordionExample">
-                      <div class="accordion-body">
-                        <strong>
-                          <?php if (isset($modalDisplay['id_detail']) == 0) : ?>
-                            <a href="?add_data" class="btn btn-sm btn-primary <?php echo isset($_SESSION['ID']) ? '' : 'd-none' ?>"><i class='bx bx-message-square-add'></i></a>
-                          <?php else : ?>
-                            <a href="?detail=<?php echo $modalDisplay['id_detail'] ?>"><?php echo $modalDisplay['chapter'] ?></a>
-                            <a href="?change=<?php echo $modalDisplay['id_detail'] ?>" class="btn btn-sm btn-success mx-3 <?php echo isset($_SESSION['ID']) ? '' : 'd-none' ?>" data-toggle="tooltip" data-placement="top" data-bs-custom-class="custom-tooltip" title="Edit Chapter"><i class='bx bx-pencil'></i></a>
-                            <a href="?add_data" class="btn btn-sm btn-primary <?php echo isset($_SESSION['ID']) ? '' : 'd-none' ?>" data-toggle="tooltip" data-placement="top" data-bs-custom-class="custom-tooltip" title="Tambah Chapter"><i class='bx bx-message-square-add'></i></a>
-                          <?php endif ?>
-                        </strong>
-                      </div>
-                    </div>
-                  </div>
-
-                </div>
-                <span class="ms-auto text-danger fw-bold d-block text-center modalHarga"></span>
-              </div>
-            </div>
-          </div>
-          <div class="card-title mt-2 border shadow-sm p-2 <?php echo isset($_SESSION['ID']) ? '' : 'd-none' ?>">
-            <span class="fw-900"><i>Customize Banner</i></span>
-          </div>
-          <div class="modal-footer d-flex justify-content-between">
-            <div class="d-flex mx-2">
-              <a href="?edit=<?php echo $modalDisplay['id_main'] ?>" class="btn btn-sm btn-success mx-3 <?php echo isset($_SESSION['ID']) ? '' : 'd-none' ?>" data-toggle="tooltip" data-placement="top" data-bs-custom-class="custom-tooltip" title="Edit Banner">Edit</a>
-              <a href="?delete=<?php echo $modalDisplay['id_detail'] ?>" onclick="return confirm('Apakah anda yakin akan menghapus data ini??')" class="btn btn-sm btn-danger <?php echo isset($_SESSION['ID']) ? '' : 'd-none' ?>" data-toggle="tooltip" data-placement="top" data-bs-custom-class="custom-tooltip" title="Delete Chapter"><i class='bx bx-trash'></i></a>
-            </div>
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          </div>
-        </div>
-      </div>
-    </div> -->
-  <?php endforeach ?>
   <script
     src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
