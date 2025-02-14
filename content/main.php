@@ -119,7 +119,7 @@ if (isset($_POST['edit'])) {
                             <img src="image/<?php echo $rowChange[0]['images'] ?>" class="rounded" style="object-fit: cover;" alt="">
                         </div>
                     </div>
-                    <div class="col-sm-8 card offset-1 pt-4">
+                    <div class="col-sm-8 card offset-1 pt-4 shadow-sm bg-body-tertiary rounded">
                         <p class="px-5" style="text-align:justify;"><?php echo isset($rowChange[0]['description']) == 0 ? 'Data Belum Tersedia' : $rowChange[0]['description'] ?></p>
                     </div>
                 </div>
@@ -133,6 +133,7 @@ if (isset($_POST['edit'])) {
                             </tr>
                             <tr>
                                 <th>Chapter</th>
+                                <th>Update</th>
                                 <th class="<?php echo isset($_SESSION['ID']) ? '' : 'd-none' ?>">Tools</th>
                             </tr>
                         </thead>
@@ -141,6 +142,9 @@ if (isset($_POST['edit'])) {
                                 <tr>
                                     <td>
                                         <a href="?detail=<?php echo $key['id'] ?>"><?php echo $key['file_content'] ?></a>
+                                    </td>
+                                    <td>
+                                        <?php echo $key['update_At'] ?>
                                     </td>
                                     <td class="<?php echo isset($_SESSION['ID']) ? '' : 'd-none' ?>">
                                         <a href="?change=<?php echo $key['id'] ?>" class="btn btn-sm btn-success mx-3 <?php echo isset($_SESSION['ID']) ? '' : 'd-none' ?>" data-toggle="tooltip" data-placement="top" data-bs-custom-class="custom-tooltip" title="Edit Chapter"><i class='bx bx-pencil'></i></a>

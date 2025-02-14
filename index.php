@@ -84,12 +84,12 @@
 
 
   </div>
-  <div class="bg-light text-center p-0 fixed-bottom">
+  <footer class="bg-light mt-5 text-center p-0 ">
     <div class=" mx-auto w-75">
       <h6 class="text-center p-2 border-top font-weight-bold">&copy; My~Manga. <span class="text-success">2025</span>
       </h6>
     </div>
-  </div>
+  </footer>
 
 
 
