@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 14, 2025 at 05:31 AM
+-- Generation Time: Feb 14, 2025 at 03:26 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.0.30
 
@@ -52,6 +52,28 @@ INSERT INTO `main` (`id`, `title`, `price`, `description`, `images`, `create_at`
 (11, '8 Lorem ipsum, dolor sit amet consectetur adipisicing elit.', 50000, '&nbsp;Lorem, ipsum dolor sit amet consectetur adipisicing elit. Placeat unde delectus nam quod dolores soluta quos eveniet nobis mollitia&nbsp;necessitatibus maxime ratione saepe, nemo eligendi illo distinctio, optio itaque, eaque impedit illum! Obcaecati eius vero suscipit&nbsp;illum consequatur dolorum numquam accusamus autem? Debitis, voluptate quae?', 'picture8.jpg', '2025-02-06 14:02:11', '2025-02-06 14:07:48'),
 (12, '9 Lorem ipsum, dolor sit amet consectetur adipisicing elit.', 50000, '&nbsp;Lorem, ipsum dolor sit amet consectetur adipisicing elit. Placeat unde delectus nam quod dolores soluta quos eveniet nobis mollitia&nbsp;necessitatibus maxime ratione saepe, nemo eligendi illo distinctio, optio itaque, eaque impedit illum! Obcaecati eius vero suscipit&nbsp;illum consequatur dolorum numquam accusamus autem? Debitis, voluptate quae?', 'picture9.jpg', '2025-02-06 14:03:13', '2025-02-06 14:08:02'),
 (13, '10 Lorem ipsum, dolor sit amet consectetur adipisicing elit.', 60000, '&nbsp;Lorem, ipsum dolor sit amet consectetur adipisicing elit. Placeat unde delectus nam quod dolores soluta quos eveniet nobis mollitia&nbsp;necessitatibus maxime ratione saepe, nemo eligendi illo distinctio, optio itaque, eaque impedit illum! Obcaecati eius vero suscipit&nbsp;illum consequatur dolorum numquam accusamus autem? Debitis, voluptate quae?', 'picture10.jpg', '2025-02-06 14:03:52', '2025-02-06 14:08:08');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `report`
+--
+
+CREATE TABLE `report` (
+  `id` int(12) NOT NULL,
+  `username` varchar(255) NOT NULL,
+  `review` varchar(255) NOT NULL,
+  `create_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `update_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `report`
+--
+
+INSERT INTO `report` (`id`, `username`, `review`, `create_at`, `update_at`) VALUES
+(4, 'Anton Martius', 'haloo guesst', '2025-02-14 14:02:48', '2025-02-14 14:02:48'),
+(5, 'Jasen Yurhadi', 'haloo guesst', '2025-02-14 14:07:08', '2025-02-14 14:07:08');
 
 -- --------------------------------------------------------
 
@@ -113,6 +135,12 @@ ALTER TABLE `main`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `report`
+--
+ALTER TABLE `report`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `sub_main`
 --
 ALTER TABLE `sub_main`
@@ -134,6 +162,12 @@ ALTER TABLE `user`
 --
 ALTER TABLE `main`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+
+--
+-- AUTO_INCREMENT for table `report`
+--
+ALTER TABLE `report`
+  MODIFY `id` int(12) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `sub_main`
