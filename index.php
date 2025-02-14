@@ -55,7 +55,7 @@
     <div class="card-title border-bottom border-primary-subtle m-2 p-2 shadow-md" align="right">
       <!-- <img src="images/banner1.png" class="w-100 rounded-3" /> -->
       <?php if (isset($_GET['edit']) || isset($_GET['tambah']) || isset($_GET['change']) || isset($_GET['add_data']) || isset($_GET['detail']) || isset($_GET['read'])) : ?>
-        <a href="?" class="text-decoration-none btn btn-sm btn-secondary" onclick="window.history.back()">Kembali</a>
+        <a href="javascript:void(0)" class="text-decoration-none btn btn-sm btn-secondary" onclick="window.history.back()">Kembali</a>
       <?php else : ?>
         <a href="?tambah" class="text-decoration-none btn btn-sm btn-danger <?php echo isset($_SESSION['ID']) ? '' : 'd-none' ?>">Tambah Banner</a>
       <?php endif ?>
@@ -84,7 +84,7 @@
 
 
   </div>
-  <footer class="bg-light mt-5 text-center p-0 ">
+  <footer class="bg-light mt-5 text-center p-0 <?php echo isset($rowChange[0]['description']) == 0 ? 'fixed-bottom' : '' ?> ">
     <div class=" mx-auto w-75">
       <h6 class="text-center p-2 border-top font-weight-bold">&copy; My~Manga. <span class="text-success">2025</span>
       </h6>

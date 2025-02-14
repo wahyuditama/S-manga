@@ -110,24 +110,26 @@ if (isset($_POST['edit'])) {
         <div class="col-sm-12">
             <div class="card">
                 <div class="card-title d-flex justify-content-between m-3">
-                    <?php if (isset($rowChange[0]['description']) == 0) : ?>
-                        <a href="?add_data" class="btn btn-sm btn-primary pt-2 <?php echo isset($_SESSION['ID']) ? '' : 'd-none' ?>">Tambah Data<i class='bx bx-message-square-add mx-2'></i></a>
-                    <?php else : ?>
-                    <?php endif ?>
-                    <div class="col-sm-3">
-                        <div class="card shadow-md">
-                            <img src="image/<?php echo $rowChange[0]['images'] ?>" class="rounded" style="object-fit: cover;" alt="">
+                    <?php if (isset($rowChange[0]['description']) == 0): ?>
+                        <div class="col-sm-12 pt-4 px-2 shadow-sm bg-body-tertiary rounded">
+                            <h5>Data Belum Tersedia</h5>
                         </div>
-                    </div>
-                    <div class="col-sm-8 card offset-1 pt-4 shadow-sm bg-body-tertiary rounded">
-                        <p class="px-5" style="text-align:justify;"><?php echo isset($rowChange[0]['description']) == 0 ? 'Data Belum Tersedia' : $rowChange[0]['description'] ?></p>
-                    </div>
+                    <?php else : ?>
+                        <div class="col-sm-3">
+                            <div class="card shadow-md">
+                                <img src="image/<?php echo $rowChange[0]['images'] ?>" class="rounded" style="object-fit: cover;" alt="">
+                            </div>
+                        </div>
+                        <div class="col-sm-8 card offset-1 pt-4 shadow-sm bg-body-tertiary rounded">
+                            <p class="px-5" style="text-align:justify;"><?php echo  $rowChange[0]['description'] ?></p>
+                        </div>
+                    <?php endif ?>
                 </div>
                 <div class="table-md m-3">
                     <table class="table table-bordered text-center">
                         <thead>
                             <tr align="right">
-                                <th colspan="2">
+                                <th colspan="3">
                                     <a href="?add_data" class="btn btn-sm btn-primary pt-2 <?php echo isset($_SESSION['ID']) ? '' : 'd-none' ?>">Tambah Data<i class='bx bx-message-square-add mx-2'></i></a>
                                 </th>
                             </tr>
@@ -141,8 +143,7 @@ if (isset($_POST['edit'])) {
                             <?php foreach ($rowChange as $key) : ?>
                                 <tr>
                                     <td>
-                                        <a href="?detail=<?php echo $key['id'] ?>"><?php echo $key['file_content'] ?></a>
-                                    </td>
+                                        <h5><a href="?detail=<?php echo $key['id'] ?>"><?php echo $key['detail'] ?></a></h5>
                                     <td>
                                         <?php echo $key['update_At'] ?>
                                     </td>

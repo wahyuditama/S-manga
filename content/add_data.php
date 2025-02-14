@@ -37,7 +37,7 @@ if (isset($_POST['simpan'])) {
 if (isset($_POST['change'])) {
     $sub_title = $_POST['sub_title'];
     $event = htmlspecialchars($_POST['event']);
-    $detail = strip_tags($_POST['detail']);
+    $detail = htmlspecialchars(strip_tags($_POST['detail']));
 
     if (!empty($_FILES['dokumen']['name'])) {
         $dock = $_FILES['dokumen']['name'];
@@ -98,7 +98,7 @@ if (isset($_GET['delete'])) {
                         <?php endif ?>
                     </div>
                     <div class="mb-3">
-                        <label for="">Masukan Title / Chapter</label>
+                        <label for=""><?php echo isset($_GET['detail']) ? 'Chapter' : 'Masukan Title / Chapter' ?></label>
                         <input type="text" name="event" class="form-control" value="<?php echo isset($_GET['change']) || isset($_GET['detail']) ? $rowChange[0]['chapter'] : '' ?>" <?php echo isset($_GET['detail']) ? 'readonly' : '' ?> id="">
                     </div>
                 </div>
@@ -107,9 +107,9 @@ if (isset($_GET['delete'])) {
                         <label for="">Deskripsi Novel</label>
                         <?php if (isset($_GET['detail'])) :  ?>
                             <textarea id="resize" class="form-control pt-4 px-3" name="detail" style="height: 20rem; text-align: justify;" readonly>
-                            <?php echo isset($_GET['detail']) ? $rowChange[0]['detail'] : '' ?></textarea>
+                            <?php echo isset($_GET['detail']) ? $rowChange[0]['description'] : '' ?></textarea>
                         <?php else : ?>
-                            <textarea id="editor" class="form-control" name="detail"><?php echo isset($_GET['change']) ? $rowChange[0]['detail'] : '' ?></textarea>
+                            <textarea id="editor" class="form-control" name="detail"><?php echo isset($_GET['change']) ? $rowChange[0]['description'] : '' ?></textarea>
                         <?php endif ?>
                     </div>
                 </div>
