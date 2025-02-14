@@ -95,10 +95,7 @@ if (isset($_POST['edit'])) {
                     <div class="mb-3">
                         <label for="">Banner</label>
                         <input type="file" class="form-control" id="gambar" name="gambar">
-
                         <img src="image/<?php echo $rowEdit['images'] ?>" alt="Gambar" width="100">
-
-
                     </div>
                 </div>
                 <button type="submit" class="btn btn-sm btn-primary" name="<?php echo isset($_GET['edit']) ? 'edit' : 'tambah' ?>"><?php echo isset($_GET['edit']) ? 'Edit' : 'Tambah' ?></button>

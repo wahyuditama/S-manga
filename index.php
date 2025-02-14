@@ -67,7 +67,7 @@
       Website Manga & Novel Ringan. Meskipun masih sederhana pasti kami akan selalu mengembangkan Smanga
     </div> -->
 
-    <?php if (isset($_GET['pg'])) : ?>
+    <?php if (isset($_GET[0])) : ?>
       <?php echo 'Data Tidak Ditemukan'; ?>
     <?php else : ?>
       <?php if (isset($_GET['tambah']) || isset($_GET['edit']) || isset($_GET['change_detail']) || isset($_GET['read'])) : ?>

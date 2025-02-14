@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 13, 2025 at 05:46 PM
+-- Generation Time: Feb 14, 2025 at 05:31 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.0.30
 
@@ -74,11 +74,11 @@ CREATE TABLE `sub_main` (
 --
 
 INSERT INTO `sub_main` (`id`, `main_id`, `chapter`, `detail`, `file_content`, `create_at`, `update_At`) VALUES
-(1, 6, 'Chapter 1', 'Di ujung utara benua Varno terletak negara kecil Kerajaan Natra. Sejak Raja Owen jatuh sakit, tugas menjalankan negara jatuh ke tangan putra Owen yang sangat kompeten, Putra Mahkota, yang sekarang men', '[Bakadame.com] Pangeran Nolep Aku Banget Vol.5.pdf', '2025-02-09 15:22:39', '2025-02-11 09:58:11'),
-(34, 3, 'Chapter 4', 'Terpesona dengan kisah Niké, seorang penyihir yang menjelajahi dunia, Elaina bercita-cita untuk mengikuti kursus yang sama. Tekadnya untuk mempelajari buku dan ilmu sihir membuatnya menjadi penyihir magang termuda yang lulus ujian ilmu sihir. Namun, ketika Elaina mencoba menerima pelatihan untuk menjadi penyihir sejati, ia ditolak karena bakatnya yang luar biasa hingga ia menemukan Fran, \"Penyihir Stardust\", yang menerimanya. Setelah mendapatkan gelarnya, \"Penyihir Ashen\", Elaina memulai penjelajahannya di seluruh dunia, mengunjungi dan menghadapi berbagai macam orang dan tempat.', '[Bakadame.com] Majo no Tabitabi Vol 4.pdf', '2025-02-11 09:56:29', '2025-02-11 10:00:21'),
-(35, 2, 'Chapter 1 Second Years', 'Pemerintah Jepang telah mendirikan Tokyo Metropolitan Advanced Nurturing School, yang didedikasikan untuk mendidik dan membina generasi orang-orang yang akan mendukung negara di masa depan. Para siswa diberi kebebasan yang tinggi untuk meniru kehidupan nyata. Cerita ini mengikuti sudut pandang Kiyotaka Ayanokōji, seorang anak laki-laki yang pendiam dan sederhana, yang buruk dalam berteman dan lebih suka menjaga jarak, tetapi memiliki kecerdasan yang tak tertandingi dan kemampuan fisik yang luar biasa. Dia adalah siswa Kelas-D, tempat sekolah membuang siswa-siswanya yang kurang beruntung, yang secara luas dianggap \"cacat\". Setelah bertemu Suzune Horikita dan Kikyō Kushida, dua siswa lain di kelasnya, situasinya mulai berubah, dan dia terlibat dalam banyak perselingkuhan dan pemikirannya tentang kehidupan sekolah menengah yang normal dan ideal mulai tersebar, yang membebani kewarasannya.', 'Youkoso Jitsuryoku Shijou Shugi no Kyoushitsu e 2nd Year Vol 1.pdf', '2025-02-11 10:07:44', '2025-02-11 10:07:44'),
-(36, 1, 'Chapter 2', 'Di Kekaisaran Tearmoon yang runtuh, Putri Mia Luna Tearmoon yang berusia 20 tahun, yang dicemooh sebagai putri yang egois, dieksekusi dengan guillotine. Namun, alih-alih mati, ia terbangun dan mendapati dirinya kembali dalam tubuhnya yang berusia 12 tahun, awalnya percaya bahwa kejadian itu adalah mimpi, sebelum menemukan buku hariannya berlumuran darah dari eksekusi dan berisi catatan yang ia buat sebelum kejadian itu. Memohon untuk menghindari eksekusi dengan cara apa pun, ia memutuskan untuk membangun kembali kekaisaran. Karena itu, ia akan \"mengutamakan keselamatannya sendiri\". Tindakannya yang dianggap egois, dicampur dengan pengetahuannya dari kehidupan pertamanya, entah bagaimana memikat orang-orang di sekitarnya saat ia bekerja keras untuk mengubah musuh-musuhnya di kehidupan pertamanya menjadi sekutunya.', 'Tearmoon Empire_ Volume 2.pdf', '2025-02-11 15:42:55', '2025-02-11 15:42:55'),
-(37, 6, '', '', '[Bakadame.com] Pangeran Nolep Aku Banget Vol.6.pdf', '2025-02-13 13:04:10', '2025-02-13 13:04:10');
+(1, 6, 'Chapter 1', 'Tensai ouji no akaji Vol.5 sub indo', '[Bakadame.com] Pangeran Nolep Aku Banget Vol.5.pdf', '2025-02-09 15:22:39', '2025-02-14 03:44:25'),
+(34, 3, 'Chapter 4', '  wandering witch the journey of elaina Volume. 4', '[Bakadame.com] Majo no Tabitabi Vol 4.pdf', '2025-02-11 09:56:29', '2025-02-14 04:06:58'),
+(35, 2, 'Chapter 1 Second Years', ' Youkoso Jitsuryoku Shijou Shugi no Kyoushitsu e 2nd Year Volume 1', 'Youkoso Jitsuryoku Shijou Shugi no Kyoushitsu e 2nd Year Vol 1.pdf', '2025-02-11 10:07:44', '2025-02-14 04:06:10'),
+(36, 1, 'Chapter 2', 'Tearmoon Teikoku Monogatari . volume-2', 'Tearmoon Empire_ Volume 2.pdf', '2025-02-11 15:42:55', '2025-02-14 04:05:19'),
+(37, 6, '', 'Tensai ouji no akaji Vol.6 sub indo', '[Bakadame.com] Pangeran Nolep Aku Banget Vol.6.pdf', '2025-02-13 13:04:10', '2025-02-14 03:42:45');
 
 -- --------------------------------------------------------
 

@@ -116,7 +116,7 @@ if (isset($_GET['delete'])) {
                 <div class="col-sm-12">
                     <div class="mb-3">
                         <div class="mb-3">
-                            <label for="">Masukan File Disini</label>
+                            <label for=""><?php echo isset($_GET['detail']) ? '' : 'Masukan File Disini' ?></label>
                             <?php if (isset($_GET['detail'])) : ?>
                                 <iframe src="document/<?php echo isset($_GET['detail']) ? $rowChange[0]['file_content'] : '' ?>" width="100%" height="600" frameborder="0"></iframe>
                             <?php else : ?>
@@ -126,7 +126,10 @@ if (isset($_GET['delete'])) {
                         </div>
                     </div>
                 </div>
-                <button type="submit" class="btn btn-sm btn-primary" name="<?php echo isset($_GET['change']) ? 'change' : 'simpan' ?>"><?php echo isset($_GET['change']) ? 'Change' : 'Simpan' ?> Data</button>
+                <?php if (isset($_GET['detail'])) :  ?>
+                <?php else : ?>
+                    <button type="submit" class="btn btn-sm btn-primary" name="<?php echo isset($_GET['change']) ? 'change' : 'simpan' ?>"><?php echo isset($_GET['change']) ? 'Change' : 'Simpan' ?> Data</button>
+                <?php endif ?>
             </div>
         </form>
     </div>
