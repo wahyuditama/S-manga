@@ -4,7 +4,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Website Manga</title>
+  <link rel="icon" href="image/hiragana.png" type="image/png" alt="">
+  <title>My~Manga</title>
 
   <link
     href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
@@ -25,11 +26,11 @@
 
 <body>
   <?php session_start(); ?>
-  <?php if (isset($_GET['edit']) || isset($_GET['tambah']) || isset($_GET['change']) || isset($_GET['add_data']) || isset($_GET['detail']) || isset($_GET['read'])) : ?>
+  <?php if (isset($_GET['edit']) || isset($_GET['tambah']) || isset($_GET['change']) || isset($_GET['add_data']) || isset($_GET['detail']) || isset($_GET['read']) || isset($_GET['report'])) : ?>
   <?php else : ?>
     <style>
       body {
-        background: url('images/inazuma.png') no-repeat center fixed !important;
+        /* background: url('image/inazuma.png') no-repeat center fixed !important; */
         background-size: cover !important;
       }
     </style>
@@ -46,28 +47,25 @@
           <li class="list-inline-item mx-md-2"><a href="?pg&report" class="text-decoration-none text-dark fw-bold">Report</a></li>
           <li class="list-inline-item mx-md-2"><a href="<?php echo isset($_SESSION['ID']) ? 'content/login.php?logout' : 'content/login.php' ?>" class="text-decoration-none text-dark fw-bold"><?php echo isset($_SESSION['ID']) ? 'Logout' : 'Login'; ?>
             </a></li>
+          <li class="list-inline-item mx-md-2"><input type="text" class="form-control border border-3" id="searchInput" placeholder="Cari..."></li>
         </ul>
       </div>
     </nav>
     <hr>
     <!-- banner -->
     <div class="card-title border-bottom border-primary-subtle m-2 p-2 shadow-md" align="right">
-      <!-- <img src="images/banner1.png" class="w-100 rounded-3" /> -->
       <?php if (isset($_GET['edit']) || isset($_GET['tambah']) || isset($_GET['change']) || isset($_GET['add_data']) || isset($_GET['detail']) || isset($_GET['read']) || isset($_GET['report'])) : ?>
         <div class="justify-content-between <?php echo isset($_GET['report']) ? 'd-flex' : '' ?>">
           <a href="" class="text-decoration-none btn btn-sm btn-secondary <?php echo isset($_GET['report']) ? '' : 'd-none' ?>">Link Report</a>
           <a href="javascript:void(0)" class="text-decoration-none btn btn-sm btn-secondary" onclick="window.history.back()">Kembali</a>
         </div>
       <?php else : ?>
-        <a href="?tambah" class="text-decoration-none btn btn-sm btn-danger <?php echo isset($_SESSION['ID']) ? '' : 'd-none' ?>">Tambah Banner</a>
+        <?php if (isset($_SESSION['ID'])) : ?>
+          <a href="?tambah" class="text-decoration-none btn btn-sm btn-danger <?php echo isset($_SESSION['ID']) ? '' : 'd-none' ?>">Tambah Banner</a>
+        <?php endif ?>
       <?php endif ?>
     </div>
 
-    <!-- catalogue -->
-    <!-- <h3 class="text-center" id="?" style="color: dark">Selamat Datang</h3>
-    <div class="text-center mb-5 w-50 mx-auto fw-light" style="color: dark">
-      Website Manga & Novel Ringan. Meskipun masih sederhana pasti kami akan selalu mengembangkan Smanga
-    </div> -->
 
     <?php if (isset($_GET['report'])) : ?>
       <?php include 'content/report.php' ?>
@@ -77,7 +75,7 @@
       <?php elseif (isset($_GET['change']) || isset($_GET['add_data']) || isset($_GET['detail']) || isset($_GET['delete'])) : ?>
         <?php include 'content/add_data.php' ?>
       <?php else : ?>
-        <div class="row row-cols-md-5 row-cols-2 gx-4 p-6">
+        <div class="row row-cols-sm-5 row-cols-2 gx-4 p-6">
           <?php include 'content/main.php' ?>
         <?php endif ?>
         </div>

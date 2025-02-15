@@ -71,7 +71,7 @@ if (isset($_GET['logout'])) {
 
                             <div class="mb-md-2 mt-md-4">
                                 <h2 class="fw-bold mb-2 "><?php echo isset($_GET['register']) ? 'Register' : 'Login' ?></h2>
-                                <p class="text-white-50 mb-5"><?php echo isset($_GET['register']) ? 'Please eyour register at here!' : 'Please enter your login and password!' ?></p>
+                                <p class="text-white-50 mb-5"><?php echo isset($_GET['register']) ? 'Please eyour register at here!' : 'Please enter your email and password!' ?></p>
                                 <form action="" method="post">
 
                                     <div data-mdb-input-init class="form-outline form-white mb-4">

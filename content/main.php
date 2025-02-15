@@ -108,7 +108,7 @@ if (isset($_POST['edit'])) {
             <div class="card">
                 <div class="card-title d-flex justify-content-between m-3">
                     <?php if (isset($rowChange[0]['description']) == 0): ?>
-                        <div class="col-sm-12 pt-4 px-2 shadow-sm bg-body-tertiary rounded">
+                        <div class="col-sm-12 py-3 px-2 shadow-sm bg-body-tertiary rounded">
                             <h5>Data Belum Tersedia</h5>
                         </div>
                     <?php else : ?>
@@ -117,8 +117,12 @@ if (isset($_POST['edit'])) {
                                 <img src="image/<?php echo $rowChange[0]['images'] ?>" class="rounded" style="object-fit: cover;" alt="">
                             </div>
                         </div>
-                        <div class="col-sm-8 card offset-1 pt-4 shadow-sm bg-body-tertiary rounded">
-                            <p class="px-5" style="text-align:justify;"><?php echo  $rowChange[0]['description'] ?></p>
+                        <div class="col-sm-8 offset-1" height="auto">
+                            <div class="card shadow-sm bg-body-tertiary rounded">
+                                <div class="card-body">
+                                    <p class="px-5" style="text-align:justify;"><?php echo  $rowChange[0]['description'] ?></p>
+                                </div>
+                            </div>
                         </div>
                     <?php endif ?>
                 </div>
@@ -142,7 +146,7 @@ if (isset($_POST['edit'])) {
                                     <td>
                                         <h5><a href="?detail=<?php echo $key['id'] ?>"><?php echo $key['detail'] ?></a></h5>
                                     <td>
-                                        <?php echo $key['update_At'] ?>
+                                        <?php echo date('D-m-y', strtotime($key['update_At'])) ?>
                                     </td>
                                     <td class="<?php echo isset($_SESSION['ID']) ? '' : 'd-none' ?>">
                                         <a href="?change=<?php echo $key['id'] ?>" class="btn btn-sm btn-success mx-3 <?php echo isset($_SESSION['ID']) ? '' : 'd-none' ?>" data-toggle="tooltip" data-placement="top" data-bs-custom-class="custom-tooltip" title="Edit Chapter"><i class='bx bx-pencil'></i></a>
@@ -157,13 +161,13 @@ if (isset($_POST['edit'])) {
         </div>
     <?php else : ?>
         <?php foreach ($resulContent as $value) :  ?>
-            <div class="col mb-5">
-                <div class="card shadow">
+            <div class="col mb-5 card-item">
+                <div class="card shadow searching">
                     <a href="?read=<?php echo $value['id_main'] ?>" style="cursor: pointer;">
                         <img src="image/<?php echo $value['images'] ?>" class="card-img-top" height="250" style="object-fit: cover;" />
                     </a>
                     <div class="card-body">
-                        <p class="card-text text-justify"><?php echo $value['title'] ?></p>
+                        <p class="card-title text-justify"><?php echo $value['title'] ?></p>
                     </div>
                     <div class="d-none deskripsi">
                         <p class="text-justify" style="text-align: justify;">
@@ -173,7 +177,7 @@ if (isset($_POST['edit'])) {
                     <div class="card-title border-top shadow-md d-flex justify-content-between">
                         <div class="mt-2">
                             <a href="?edit=<?php echo $value['id_main'] ?>" class="btn btn-sm btn-success mx-3 <?php echo isset($_SESSION['ID']) ? '' : 'd-none' ?>" data-toggle="tooltip" data-placement="top" data-bs-custom-class="custom-tooltip" title="Edit Banner"><i class='bx bx-pencil'></i></a>
-                            <a href="?delete=<?php echo $value['id_detail'] ?>" onclick="return confirm('Apakah anda yakin akan menghapus data ini??')" class="btn btn-sm btn-danger <?php echo isset($_SESSION['ID']) ? '' : 'd-none' ?>" data-toggle="tooltip" data-placement="top" data-bs-custom-class="custom-tooltip" title="Delete Chapter"><i class='bx bx-trash'></i></a>
+                            <a href="?delete=<?php echo $value['id_detail'] ?>" onclick="return confirm('Apakah anda yakin akan menghapus data ini?')" class="btn btn-sm btn-danger <?php echo isset($_SESSION['ID']) ? '' : 'd-none' ?>" data-toggle="tooltip" data-placement="top" data-bs-custom-class="custom-tooltip" title="Delete Chapter"><i class='bx bx-trash'></i></a>
                         </div>
                     </div>
                 </div>
